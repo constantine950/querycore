@@ -1,0 +1,266 @@
+[
+  {
+    "id": "doc_001",
+    "title": "Search Engine",
+    "body": "A search engine is a software system designed to carry out web searches. It searches the World Wide Web in a systematic way for particular information specified in a textual web search query. The search results are generally presented in a line of results, often referred to as search engine results pages. The information may be a mix of links to web pages, images, videos, infographics, articles, research papers and other types of files. When a user enters a query into a search engine, the engine scans its index of web pages to find those most relevant to the query. Modern search engines use sophisticated algorithms to rank results by relevance. The core of a search engine is its indexing system, which crawls documents and builds an inverted index mapping terms to documents. Ranking algorithms then score each document against the query using signals like term frequency, link popularity, and freshness.",
+    "category": "computer_science",
+    "date": "2024-01-01",
+    "word_count": 151
+  },
+  {
+    "id": "doc_002",
+    "title": "Inverted Index",
+    "body": "An inverted index is an index data structure storing a mapping from content, such as words or numbers, to its locations in a document or a set of documents. In simple words, it is a hashmap like data structure that directs you from a word to a document or a web page. The purpose of an inverted index is to allow fast full-text searches, at a cost of increased processing when a document is added to the database. The inverted index data structure is a central component of a typical search engine indexing algorithm. A goal of a search engine implementation is to optimize the speed of the query: find the documents where a given word occurs. Once a forward index is developed, which stores lists of words per document, it is next inverted to develop an inverted index. Querying the inverted index can then be considered as the intersection of the posting lists.",
+    "category": "computer_science",
+    "date": "2024-02-01",
+    "word_count": 154
+  },
+  {
+    "id": "doc_003",
+    "title": "TF-IDF",
+    "body": "TF-IDF stands for Term Frequency-Inverse Document Frequency. It is a numerical statistic that reflects how important a word is to a document in a collection or corpus. It is often used as a weighting factor in searches of information retrieval and text mining. The TF-IDF value increases proportionally to the number of times a word appears in the document and is offset by the number of documents in the corpus that contain the word, which helps to adjust for the fact that some words appear more frequently in general. Term frequency measures how frequently a term occurs in a document. Since every document is different in length, it is possible that a term would appear more often in longer documents than shorter ones. Thus, term frequency is often divided by the total number of terms in the document as a way of normalization. Inverse document frequency measures how important a term is across the corpus. While computing TF, all terms are considered equally important. However, it is known that certain terms such as 'is', 'of', and 'that' may appear many times but have little importance.",
+    "category": "computer_science",
+    "date": "2024-03-01",
+    "word_count": 185
+  },
+  {
+    "id": "doc_004",
+    "title": "Information Retrieval",
+    "body": "Information retrieval is the science of searching for information in a document, searching for documents themselves, and also searching for metadata that describe data, and for databases of texts, images or sounds. Automated information retrieval systems are used to reduce information overload. An IR system is a software system that provides access to books, journals and other documents, stores and manages those documents. Web search engines are the most visible IR applications. The field of information retrieval also encompasses supporting users in browsing or filtering document collections or further processing a set of retrieved documents. An information retrieval process begins when a user enters a query into the system. Queries are formal statements of information needs. In information retrieval a query does not uniquely identify a single object in the collection. Instead, several objects may match the query, perhaps with different degrees of relevancy. Retrieval models specify the details of how queries and documents are matched.",
+    "category": "computer_science",
+    "date": "2024-04-01",
+    "word_count": 156
+  },
+  {
+    "id": "doc_005",
+    "title": "Tokenization",
+    "body": "Tokenization is the process of breaking a stream of text up into words, phrases, symbols, or other meaningful elements called tokens. The list of tokens becomes input for further processing such as parsing or text mining. Tokenization is useful both in linguistics where it is a form of text segmentation, and in computer science where it forms part of lexical analysis. In the context of natural language processing, tokenization is the first step in building a pipeline for text processing. A tokenizer takes raw text and converts it into a list of tokens. Simple tokenizers split on whitespace and punctuation. More advanced tokenizers handle contractions, hyphenation, special characters, and language-specific rules. Subword tokenization methods like BPE and WordPiece are common in modern NLP systems as they handle out-of-vocabulary words by splitting them into known subword units.",
+    "category": "computer_science",
+    "date": "2024-05-01",
+    "word_count": 136
+  },
+  {
+    "id": "doc_006",
+    "title": "Natural Language Processing",
+    "body": "Natural language processing is a subfield of linguistics, computer science, and artificial intelligence concerned with the interactions between computers and human language, in particular how to program computers to process and analyze large amounts of natural language data. The goal is a computer capable of understanding the contents of documents, including the contextual nuances of the language within them. The technology can then accurately extract information and insights contained in the documents, as well as categorize and organize the documents themselves. Challenges in natural language processing frequently involve speech recognition, natural language understanding, and natural language generation. Common NLP tasks include tokenization, stemming, lemmatization, part-of-speech tagging, named entity recognition, parsing, sentiment analysis, and machine translation. Modern NLP systems rely heavily on deep learning and transformer architectures.",
+    "category": "computer_science",
+    "date": "2024-06-01",
+    "word_count": 126
+  },
+  {
+    "id": "doc_007",
+    "title": "Algorithm",
+    "body": "In mathematics and computer science, an algorithm is a finite sequence of rigorous instructions, typically used to solve a class of specific problems or to perform a computation. Algorithms are used as specifications for performing calculations and data processing. More advanced algorithms can use conditionals to divert the code execution through various routes and deduce valid inferences, achieving automation. Using human characteristics as descriptors of machines in metaphorical ways was already practiced by Alan Turing with terms such as memory, search, and stimulus. In contrast, a heuristic is an approach to problem solving that may not be fully specified or may not guarantee correct or optimal results, especially in problem domains where there is no well-defined correct or optimal result. As an effective method, an algorithm can be expressed within a finite amount of space and time, and in a well-defined formal language for calculating a function.",
+    "category": "computer_science",
+    "date": "2024-07-01",
+    "word_count": 147
+  },
+  {
+    "id": "doc_008",
+    "title": "Hash Table",
+    "body": "In computing, a hash table, also known as hash map, is a data structure that implements an associative array or dictionary. It is an abstract data type that maps keys to values. A hash table uses a hash function to compute an index, also called a hash code, into an array of buckets or slots, from which the desired value can be found. During lookup, the key is hashed and the resulting hash indicates where the corresponding value is stored. Ideally, the hash function will assign each key to a unique bucket, but most hash table designs employ an imperfect hash function, which might cause hash collisions where the hash function generates the same index for more than one key. Such collisions are typically accommodated in some way. In a well-dimensioned hash table, the average time complexity for each lookup is independent of the number of elements stored in the table. Many hash table designs also allow arbitrary insertions and deletions of key-value pairs, at amortized constant average cost per operation.",
+    "category": "computer_science",
+    "date": "2024-08-01",
+    "word_count": 171
+  },
+  {
+    "id": "doc_009",
+    "title": "Sorting Algorithm",
+    "body": "In computer science, a sorting algorithm is an algorithm that puts elements of a list into an order. The most frequently used orders are numerical order and lexicographical order, and either ascending or descending. Efficient sorting is important for optimizing the efficiency of other algorithms such as search and merge algorithms that require input data to be in sorted lists. Sorting is also often useful for canonicalizing data and for producing human-readable output. Formally, the output of any sorting algorithm must satisfy two conditions: the output is in monotonic order, and the output is a permutation of the input. For optimum efficiency, the input data should be stored in a data structure which allows random access rather than one that allows only sequential access. Common sorting algorithms include quicksort, mergesort, heapsort, insertion sort, and bubble sort. Comparison-based sorts have a lower bound of O(n log n) comparisons in the worst case.",
+    "category": "computer_science",
+    "date": "2024-09-01",
+    "word_count": 151
+  },
+  {
+    "id": "doc_010",
+    "title": "Machine Learning",
+    "body": "Machine learning is a branch of artificial intelligence and computer science which focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy. Machine learning is an important component of the growing field of data science. Through the use of statistical methods, algorithms are trained to make classifications or predictions, and to uncover key insights in data mining projects. These insights subsequently drive decision making within applications and businesses. The machine learning process begins with observations or data, such as examples, direct experience, or instruction, so that computers can learn to perform tasks without being explicitly programmed to do so. There are three main types of machine learning: supervised learning, unsupervised learning, and reinforcement learning. In supervised learning, the algorithm is trained on labeled data. Deep learning is a subset of machine learning using neural networks with many layers.",
+    "category": "computer_science",
+    "date": "2024-10-01",
+    "word_count": 147
+  },
+  {
+    "id": "doc_011",
+    "title": "Database",
+    "body": "A database is an organized collection of structured information, or data, typically stored electronically in a computer system. A database is usually controlled by a database management system, also called a DBMS. Together, the data and the DBMS, along with the applications that are associated with them, are referred to as a database system. Data within the most common types of databases in operation today is typically modeled in rows and columns in a series of tables to make processing and data querying efficient. The data can then be easily accessed, managed, modified, updated, controlled, and organized. Most databases use structured query language for writing and querying data. Relational databases organize data into tables with defined schemas. NoSQL databases offer flexible schemas and horizontal scaling. Key-value stores, document databases, column-family stores, and graph databases are all types of NoSQL systems.",
+    "category": "computer_science",
+    "date": "2024-11-01",
+    "word_count": 140
+  },
+  {
+    "id": "doc_012",
+    "title": "Operating System",
+    "body": "An operating system is system software that manages computer hardware and software resources, and provides common services for computer programs. Operating systems are found on many devices that contain a computer, from cellular phones and video game consoles to web servers and supercomputers. The operating system acts as an intermediary between programs and the computer hardware. The main functions of an operating system include process management, memory management, file system management, device management, networking, and security. Popular operating systems include Windows, macOS, Linux, Android, and iOS. The kernel is the core of the operating system that handles the most critical tasks. Modern operating systems use virtual memory to give each process the illusion of having its own private memory space. Scheduling algorithms determine which process runs on the CPU at any given time.",
+    "category": "computer_science",
+    "date": "2024-12-01",
+    "word_count": 133
+  },
+  {
+    "id": "doc_013",
+    "title": "Quantum Mechanics",
+    "body": "Quantum mechanics is a fundamental theory in physics that describes the behavior of nature at and below the scale of atoms. It is the foundation of all quantum physics including quantum chemistry, quantum field theory, quantum technology, and quantum information science. Classical physics, the collection of theories that existed before the advent of quantum mechanics, describes many aspects of nature at an ordinary macroscopic scale, but is not sufficient for describing them at small subatomic scales. Most theories in classical physics can be derived from quantum mechanics as an approximation valid at large length scale. Quantum mechanics differs from classical physics in that energy, momentum, angular momentum, and other quantities of a bound system are restricted to discrete values; objects have characteristics of both particles and waves; and there are limits to how accurately the value of a physical quantity can be predicted prior to its measurement.",
+    "category": "science",
+    "date": "2024-01-01",
+    "word_count": 147
+  },
+  {
+    "id": "doc_014",
+    "title": "Black Hole",
+    "body": "A black hole is a region of spacetime where gravity is so strong that nothing, not even light or other electromagnetic waves, has enough speed to escape the event horizon. The theory of general relativity predicts that a sufficiently compact mass can deform spacetime to form a black hole. The boundary of no escape is called the event horizon. A black hole has a great effect on the fate and circumstances of an object crossing it, but it has no locally detectable features according to general relativity. In many ways, a black hole acts like an ideal black body, as it reflects no light. Moreover, quantum field theory in curved spacetime predicts that event horizons emit Hawking radiation, with the same spectrum as a black body of a temperature inversely proportional to its mass. Black holes of stellar mass form when very massive stars collapse at the end of their life cycle. After a black hole has formed, it can grow by absorbing mass from its surroundings.",
+    "category": "science",
+    "date": "2024-02-01",
+    "word_count": 167
+  },
+  {
+    "id": "doc_015",
+    "title": "DNA",
+    "body": "Deoxyribonucleic acid, more commonly known as DNA, is a polymer composed of two polynucleotide chains that coil around each other to form a double helix. The polymer carries genetic instructions for the development, functioning, growth and reproduction of all known organisms and many viruses. DNA and ribonucleic acid are nucleic acids. Alongside proteins, lipids and complex carbohydrates, nucleic acids are one of the four major types of macromolecules that are essential for all known forms of life. The two DNA strands are known as polynucleotides as they are composed of simpler monomeric units called nucleotides. Each nucleotide is composed of one of four nitrogen-containing nucleobases: cytosine, guanine, adenine or thymine; a sugar called deoxyribose; and a phosphate group. The nucleotides are joined to one another in a chain by covalent bonds between the sugar of one nucleotide and the phosphate of the next.",
+    "category": "science",
+    "date": "2024-03-01",
+    "word_count": 143
+  },
+  {
+    "id": "doc_016",
+    "title": "Climate Change",
+    "body": "In common usage, climate change describes global warming, the ongoing increase in global average temperature, and its effects on Earth's climate system. Climate change in a broader sense also includes previous long-term changes to Earth's climate. The current rise in global average temperature is more rapid than previous changes and is primarily caused by humans burning fossil fuels. Fossil fuel use, deforestation, and some agricultural and industrial practices increase greenhouse gas concentrations, particularly carbon dioxide and methane. Greenhouse gases absorb some of the heat that the Earth radiates after it warms from sunlight. Larger greenhouse gas concentrations hold in more heat. This extra heat causes changes such as melting glaciers and ice sheets, rising sea levels, stronger storms and droughts, disrupted ecosystems, and reduced agricultural yields. These changes threaten people's health and way of life and the health of all ecosystems.",
+    "category": "science",
+    "date": "2024-04-01",
+    "word_count": 141
+  },
+  {
+    "id": "doc_017",
+    "title": "Evolution",
+    "body": "Evolution is change in the heritable characteristics of biological populations over successive generations. These characteristics are the expressions of genes, which are passed on from parent to offspring during reproduction. Different characteristics tend to exist within any given population as a result of mutation, genetic recombination and other sources of genetic variation. Evolution occurs when evolutionary processes such as natural selection including sexual selection and genetic drift act on this variation, resulting in certain characteristics becoming more common or rare within a population. It is this process of evolution that has given rise to biodiversity at every level of biological organisation. The theory of evolution by natural selection was proposed by Charles Darwin and Alfred Russel Wallace and set out in detail in Darwin's book On the Origin of Species. Natural selection acts on phenotype, or the observable characteristics of an organism.",
+    "category": "science",
+    "date": "2024-05-01",
+    "word_count": 142
+  },
+  {
+    "id": "doc_018",
+    "title": "World War II",
+    "body": "World War II or the Second World War was a global conflict that lasted from 1939 to 1945. The vast majority of the world's countries, including all of the great powers, fought as part of two opposing military alliances: the Allies and the Axis. Many participants threw their economic, industrial, and scientific capabilities behind this total war, blurring the distinction between civilian and military resources. Aircraft played a major role in the conflict, enabling the strategic bombing of population centres and deploying the only two nuclear weapons ever used in war. World War II was by far the deadliest conflict in human history, resulting in an estimated 70 to 85 million fatalities, mostly among civilians. Tens of millions of people were killed by genocide, starvation, massacre, and disease. The war began with the invasion of Poland by Germany and the Soviet Union, followed by the United Kingdom and France declaring war on Germany.",
+    "category": "history",
+    "date": "2024-06-01",
+    "word_count": 153
+  },
+  {
+    "id": "doc_019",
+    "title": "Alan Turing",
+    "body": "Alan Mathison Turing was an English mathematician, computer scientist, logician, cryptanalyst, philosopher, and theoretical biologist. He was highly influential in the development of theoretical computer science, providing a formalisation of the concepts of algorithm and computation with the Turing machine, which can be considered a model of a general-purpose computer. Turing is widely considered to be the father of theoretical computer science and artificial intelligence. Born in London, Turing was raised in southern England. He graduated in mathematics from King's College, Cambridge, and in 1938, earned a doctorate degree from Princeton University. During World War II, Turing worked for the Government Code and Cypher School at Bletchley Park, helping to break the German Enigma cipher. After the war, Turing worked at the National Physical Laboratory, where he designed the Automatic Computing Engine.",
+    "category": "history",
+    "date": "2024-07-01",
+    "word_count": 132
+  },
+  {
+    "id": "doc_020",
+    "title": "Ada Lovelace",
+    "body": "Augusta Ada King, Countess of Lovelace, commonly known as Ada Lovelace, was an English mathematician and writer chiefly known for her work on Charles Babbage's proposed mechanical general-purpose computer, the Analytical Engine. She was the first to recognise that the machine had applications beyond pure calculation, and to have published what is now regarded as the first algorithm intended to be processed by a machine. As a result, she is often regarded as the first computer programmer. Ada was the only legitimate child of the poet Lord Byron and his wife Lady Byron. Ada had a difficult childhood as a result of her parents separating just five weeks after her birth. Her mother raised her, having been granted sole custody following the separation. Her mother was anxious that she not grow up to be a poet like her father, so she was given extensive mathematics and science tuition from an early age.",
+    "category": "history",
+    "date": "2024-08-01",
+    "word_count": 152
+  },
+  {
+    "id": "doc_021",
+    "title": "Renaissance",
+    "body": "The Renaissance was a period of history and a European cultural movement covering the 15th and 16th centuries. It marked the transition from the Middle Ages to modernity. The Renaissance covered the flowering of philosophy, literature, music, art, science, technology, politics, religion, and other aspects of intellectual inquiry. The Renaissance began in Italy in the late 13th century and later spread to the rest of Europe. Renaissance thinkers sought out learning from ancient texts and humanism, and a renewed focus on the importance of education and practical skills. The invention of the printing press in the 15th century was vital to spreading the new ideas. Prominent Renaissance figures include Leonardo da Vinci, Michelangelo, Raphael, Galileo Galilei, and Niccol\u00f2 Machiavelli. The period saw great advances in art including the development of perspective and the use of oil paints.",
+    "category": "history",
+    "date": "2024-09-01",
+    "word_count": 137
+  },
+  {
+    "id": "doc_022",
+    "title": "Industrial Revolution",
+    "body": "The Industrial Revolution was the transition of much of Europe and North America from manual industry and craft production to a system of industry and machine manufacturing, as well as the transition from the use of wood and bio-fuels to the use of coal. This transition occurred in the period from about 1760 to 1840. The Industrial Revolution began in Great Britain, and many of the technological innovations were of British origin. By the mid-18th century, Britain was the world's leading commercial nation, controlling a global trading empire. The development of trade and the rise of business were among the major causes of the Industrial Revolution. Coal power, steam engines, and the factory system transformed economies worldwide. New transportation networks including canals and railways accelerated the movement of goods and people. Urbanisation increased rapidly as people moved from rural areas to cities to find factory work.",
+    "category": "history",
+    "date": "2024-10-01",
+    "word_count": 146
+  },
+  {
+    "id": "doc_023",
+    "title": "Photosynthesis",
+    "body": "Photosynthesis is a biological process used by many living organisms to convert light energy, normally from the sun, into chemical energy that can be later released to fuel the organism's activities. Photosynthesis is central to all life on Earth and is a process that occurs in the chloroplasts of plant cells. The light-dependent reactions of photosynthesis take place in the thylakoid membranes. The light-independent reactions, also known as the Calvin cycle, take place in the stroma of the chloroplasts. The overall chemical reaction of photosynthesis can be written as: carbon dioxide plus water plus light energy produces glucose plus oxygen. Photosynthesis maintains atmospheric oxygen levels and supplies all of the organic compounds and most of the energy necessary for life on Earth. The ability to photosynthesize is found in a range of organisms including plants, algae, and some bacteria.",
+    "category": "science",
+    "date": "2024-11-01",
+    "word_count": 139
+  },
+  {
+    "id": "doc_024",
+    "title": "Fuzzy Search",
+    "body": "Fuzzy search or approximate string matching is a technique of finding strings that match a pattern approximately rather than exactly. It refers to the process of finding strings that approximately match a given query string, where the closeness of a match is measured by string metrics such as the Levenshtein distance, Hamming distance, or Jaro-Winkler distance. In information retrieval, fuzzy search helps handle user input errors, typos, and spelling variations. Levenshtein distance measures the minimum number of single-character edits required to change one word into the other. Edits include insertions, deletions, and substitutions. A threshold of edit distance 1 or 2 is commonly used in search engines to provide typo-tolerant search. Fuzzy search is widely used in spell checkers, DNA sequence matching, and approximate record linkage.",
+    "category": "computer_science",
+    "date": "2024-12-01",
+    "word_count": 126
+  },
+  {
+    "id": "doc_025",
+    "title": "Autocomplete",
+    "body": "Autocomplete, or word completion, is a feature in which an application predicts the rest of a word a user is typing. In search engines, autocomplete works by suggesting queries based on what the user has typed so far. The most common data structure for implementing autocomplete is a trie, also known as a prefix tree. A trie is a tree-shaped data structure where each node represents a prefix, and the path from the root to a node spells out that prefix. All strings with the same prefix share the same path from the root. Autocomplete systems typically rank suggestions by popularity, recency, or personalization signals. Modern search engines also use language models to predict likely completions based on context. Autocomplete significantly reduces typing effort and helps users formulate queries they might not have known how to phrase. It is an essential UX feature in search interfaces.",
+    "category": "computer_science",
+    "date": "2024-01-01",
+    "word_count": 146
+  },
+  {
+    "id": "doc_026",
+    "title": "Stemming and Lemmatization",
+    "body": "In linguistic morphology and information retrieval, stemming is the process of reducing inflected, or sometimes derived, words to their word stem, base or root form. For example, a stemming algorithm might reduce the words 'fishing', 'fished', 'fisher', and 'fish' to the base word 'fish'. A stemming algorithm is a computational procedure which carries out this reduction. The most widely used stemming algorithm for English is the Porter stemmer. Lemmatization is closely related but refers to doing things properly with the use of a vocabulary and morphological analysis of words, normally aiming to remove inflectional endings only and to return the base or dictionary form of a word, which is known as the lemma. While stemming uses heuristic rules, lemmatization requires a language dictionary. Both techniques improve search recall by matching different forms of the same word.",
+    "category": "computer_science",
+    "date": "2024-02-01",
+    "word_count": 136
+  },
+  {
+    "id": "doc_027",
+    "title": "Stop Words",
+    "body": "Stop words are words which are filtered out before or after processing of natural language data. Though stop words usually refer to the most common words in a language, there is no single universal list of stop words used by all natural language processing tools, and indeed not all tools even use such a list. Stop words are commonly used in information retrieval systems to improve search quality and reduce index size. Common English stop words include 'the', 'is', 'at', 'which', and 'on'. These words appear so frequently in documents that they carry little discriminating information for search. Removing stop words reduces the size of the inverted index significantly and speeds up query processing. However, some searches benefit from keeping stop words, such as phrase searches for 'to be or not to be'. Context determines whether stop word removal is appropriate.",
+    "category": "computer_science",
+    "date": "2024-03-01",
+    "word_count": 141
+  },
+  {
+    "id": "doc_028",
+    "title": "Trie Data Structure",
+    "body": "A trie, also called digital tree or prefix tree, is a type of k-ary search tree, a tree data structure used for locating specific keys from within a set. These keys are most often strings, with links between nodes defined not by the entire key, but by individual characters. In order to access a key, the trie is traversed depth-first, following the links between nodes, which represent each character in the key. Unlike a binary search tree, nodes in the trie do not store their associated key. Instead, a node's position in the trie defines the key with which it is associated. This distributes the value of each key across the data structure, and means that not every node necessarily has an associated value. All the children of a node have a common prefix of the string associated with that parent node. The root is associated with the empty string. Tries are commonly used for autocomplete, spell checking, and prefix searching.",
+    "category": "computer_science",
+    "date": "2024-04-01",
+    "word_count": 161
+  },
+  {
+    "id": "doc_029",
+    "title": "REST API",
+    "body": "Representational state transfer is a software architectural style that was created to describe the design of the internet. REST defines a set of constraints for how the architecture of a distributed, internet-scale hypermedia system should behave. REST architectural style emphasises the scalability of interactions between components, uniform interfaces, independent deployment of components, and the creation of a layered architecture to facilitate caching to reduce user-perceived latency. A web API that obeys the REST constraints is informally described as RESTful. RESTful web APIs are typically loosely based on HTTP methods to access resources via URL-encoded parameters and the use of JSON or XML to transmit data. Resources are identified by URIs and are manipulated using standard HTTP methods such as GET, POST, PUT, DELETE, and PATCH. REST APIs are stateless, meaning each request must contain all the information needed to process it.",
+    "category": "computer_science",
+    "date": "2024-05-01",
+    "word_count": 141
+  },
+  {
+    "id": "doc_030",
+    "title": "Docker and Containerization",
+    "body": "Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. The service has both free and premium tiers. The software that hosts the containers is called Docker Engine. It was first released in 2013 and is developed by Docker, Inc. Containers are isolated from one another and bundle their own software, libraries and configuration files. They can communicate with each other through well-defined channels. Containerization allows developers to package an application and its dependencies into a standardized unit called a container image. Docker Compose allows defining multi-container applications using a YAML configuration file. Kubernetes is a container orchestration system for automating deployment, scaling, and management of containerized applications. Containers are more lightweight than virtual machines because they share the host operating system kernel.",
+    "category": "computer_science",
+    "date": "2024-06-01",
+    "word_count": 134
+  },
+  {
+    "id": "doc_031",
+    "title": "FastAPI",
+    "body": "FastAPI is a modern, fast, web framework for building APIs with Python based on standard Python type hints. The key features are that it is very fast, on par with NodeJS and Go thanks to Starlette and Pydantic; fast to code, reducing the time to develop features by about 200 to 300 percent; fewer bugs due to automatic data validation; intuitive with great editor support; and based on and fully compatible with the open standards for APIs, OpenAPI and JSON Schema. FastAPI uses Python type hints to automatically validate request and response data, generate API documentation, and provide editor completion. FastAPI is built on top of Starlette for the web parts and Pydantic for the data parts. It supports asynchronous programming using Python's async and await syntax, making it highly efficient for I/O-bound workloads such as database queries and external API calls.",
+    "category": "computer_science",
+    "date": "2024-07-01",
+    "word_count": 142
+  },
+  {
+    "id": "doc_032",
+    "title": "Ancient Rome",
+    "body": "Ancient Rome was a civilization that emerged from the Italian peninsula during the 8th century BC. The Roman state evolved from a monarchy to a classical republic and then to an autocratic empire. Rome conquered most of the Mediterranean world and parts of Western Europe, North Africa, and Western Asia. The Roman Empire was one of the most extensive political and social structures in Western civilization. At its height under Emperor Trajan, Rome controlled territories from Britain in the northwest to the Black Sea region in the east. The Roman civilization was marked by significant contributions to law, government, engineering, architecture, language, literature, and culture. Latin, the language of the Romans, gave rise to the Romance languages including Italian, Spanish, French, Portuguese, and Romanian. Roman engineering feats include roads, aqueducts, and monumental architecture.",
+    "category": "history",
+    "date": "2024-08-01",
+    "word_count": 133
+  },
+  {
+    "id": "doc_033",
+    "title": "Distributed Computing",
+    "body": "Distributed computing is a field of computer science that studies distributed systems, defined as systems in which their components are located on different networked computers, which communicate and coordinate their actions by passing messages to one another from any system. The components interact with one another in order to achieve a common goal. Three significant challenges of distributed systems are maintaining concurrency of components, overcoming the lack of a global clock, and managing the independent failure of components. When a component of one system fails, the whole system does not fail. Examples of distributed systems vary from SOA-based systems to massively multiplayer online games to peer-to-peer applications. Distributed computing helps in sharing of resources in a network. Fault tolerance is a key property, allowing systems to continue operating despite component failures. CAP theorem states that distributed systems can guarantee at most two of consistency, availability, and partition tolerance.",
+    "category": "computer_science",
+    "date": "2024-09-01",
+    "word_count": 148
+  }
+]
