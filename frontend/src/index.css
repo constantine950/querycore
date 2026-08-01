@@ -1,0 +1,55 @@
+/* ============================================================
+   QueryCore — Design System
+   Palette: near-black bg, off-white text, electric-indigo accent
+   Type: Inter (UI) + JetBrains Mono (query / code)
+   Signature element: the search bar glows indigo on focus
+   ============================================================ */
+
+:root {
+  --bg:         #0d0e12;
+  --surface:    #15171e;
+  --border:     #252830;
+  --muted:      #3a3d4a;
+  --text:       #e8e9ef;
+  --text-2:     #8b8fa8;
+  --accent:     #6366f1;
+  --accent-dim: #4245a8;
+  --accent-glow:rgba(99,102,241,0.25);
+  --green:      #34d399;
+  --red:        #f87171;
+  --mark-bg:    rgba(99,102,241,0.28);
+  --mark-text:  #c7d2fe;
+  --radius:     6px;
+  --radius-lg:  12px;
+  --mono:       'JetBrains Mono', monospace;
+  --sans:       'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Highlighted terms from the API */
+mark {
+  background: var(--mark-bg);
+  color: var(--mark-text);
+  border-radius: 3px;
+  padding: 0 2px;
+  font-style: normal;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 3px; }
