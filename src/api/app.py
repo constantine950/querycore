@@ -1,35 +1,3 @@
-"""
-app.py
-
-QueryCore REST API — built with FastAPI.
-
-Endpoints
----------
-GET  /health                    Health check
-GET  /search?q=&page=&sort=&category=&date_from=&date_to=
-                                Full-text search with filters + pagination
-GET  /autocomplete?q=&n=        Prefix suggestions
-GET  /analytics/summary         High-level analytics summary
-GET  /analytics/top             Top queries
-GET  /analytics/zero            Zero-result queries
-POST /index                     Add a new document
-PUT  /index/{doc_id}            Update an existing document
-DELETE /index/{doc_id}          Remove a document
-
-Application state
------------------
-On startup the app builds the index from sample_documents.json and
-initialises all query-layer objects. Everything is module-level state
-(fine for a single-process server; a production system would use a
-shared cache or database-backed index).
-
-Run with:
-    cd querycore
-    uvicorn src.api.app:app --reload --port 8000
-
-Then open: http://localhost:8000/docs  (Swagger UI auto-generated)
-"""
-
 from __future__ import annotations
 
 import json
@@ -52,10 +20,6 @@ from src.search.phrase_match import PhraseFilter
 from src.search.query_parser import QueryParser
 from src.search.ranking import Ranker
 from src.search.retrieval import Retriever
-
-# ---------------------------------------------------------------------------
-# Application state (initialised at startup)
-# ---------------------------------------------------------------------------
 
 DATASET_PATH = Path(__file__).parent.parent.parent / \
     "data" / "sample_documents.json"
@@ -87,10 +51,6 @@ _autocomplete = Autocomplete(_index)
 _highlighter = Highlighter()
 _tracker = SearchTracker()
 _reindexer = Reindexer(_index)
-
-# ---------------------------------------------------------------------------
-# Pydantic models
-# ---------------------------------------------------------------------------
 
 
 class DocumentIn(BaseModel):
@@ -133,10 +93,6 @@ class HealthResponse(BaseModel):
     num_docs:  int
     num_terms: int
 
-# ---------------------------------------------------------------------------
-# App factory
-# ---------------------------------------------------------------------------
-
 
 app = FastAPI(
     title="QueryCore API",
@@ -151,14 +107,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ---------------------------------------------------------------------------
-# Routes
-# ---------------------------------------------------------------------------
-
 
 @app.get("/health", response_model=HealthResponse, tags=["System"])
 def health():
-    """Health check — returns index stats."""
     return HealthResponse(
         status="ok",
         num_docs=_index.num_docs,
@@ -184,9 +135,6 @@ def search(
     highlight: bool = Query(
         True,               description="Highlight matching terms in snippets"),
 ):
-    """
-    Full-text search with optional filters, fuzzy matching, and highlighting.
-    """
     t0 = time.perf_counter()
 
     # Parse sort order
@@ -216,16 +164,10 @@ def search(
     if fuzzy:
         candidates = _fuzzy.retrieve_fuzzy(pq)
     else:
-        candidates = _retriever.retrieve(pq)
+        candidates = _retriever.retrieve_with_phrases(pq)
 
     # Phrase filtering
     if pq.is_phrase:
-        # For phrase-only queries, gather candidates from phrase term intersection
-        if not pq.terms and not pq.or_terms and pq.phrases:
-            phrase = pq.phrases[0]
-            candidates = _retriever.retrieve_for_term(phrase[0])
-            for term in phrase[1:]:
-                candidates &= _retriever.retrieve_for_term(term)
         candidates = _phrase_f.filter(candidates, pq.phrases)
 
     # Apply filters
@@ -276,14 +218,12 @@ def autocomplete(
     q: str = Query(..., min_length=1, description="Prefix to complete"),
     n: int = Query(8,  ge=1, le=20,  description="Max suggestions"),
 ):
-    """Return autocomplete suggestions for a prefix."""
     suggestions = _autocomplete.suggest(q.lower().strip(), top_n=n)
     return AutocompleteResponse(prefix=q, suggestions=suggestions)
 
 
 @app.post("/index", response_model=IndexResponse, tags=["Index"])
 def add_document(doc: DocumentIn):
-    """Add a new document to the index."""
     d = doc.model_dump()
     try:
         _reindexer.add(d)
@@ -295,7 +235,6 @@ def add_document(doc: DocumentIn):
 
 @app.put("/index/{doc_id}", response_model=IndexResponse, tags=["Index"])
 def update_document(doc_id: str, doc: DocumentIn):
-    """Update an existing document in the index."""
     if doc.id != doc_id:
         raise HTTPException(
             status_code=400, detail="doc_id in path must match body id.")
@@ -307,7 +246,6 @@ def update_document(doc_id: str, doc: DocumentIn):
 
 @app.delete("/index/{doc_id}", response_model=IndexResponse, tags=["Index"])
 def delete_document(doc_id: str):
-    """Remove a document from the index."""
     try:
         _reindexer.remove(doc_id)
         _doc_bodies.pop(doc_id, None)
@@ -318,29 +256,24 @@ def delete_document(doc_id: str):
 
 @app.get("/analytics/summary", tags=["Analytics"])
 def analytics_summary():
-    """High-level summary of all search activity."""
     return _tracker.summary()
 
 
 @app.get("/analytics/top", tags=["Analytics"])
 def analytics_top(n: int = Query(10, ge=1, le=50, description="Number of top queries")):
-    """Top n most frequently searched queries."""
     return {"top_queries": _tracker.top_queries(n=n)}
 
 
 @app.get("/analytics/zero", tags=["Analytics"])
 def analytics_zero(n: int = Query(10, ge=1, le=50)):
-    """Queries that returned zero results."""
     return {"zero_result_queries": _tracker.zero_result_queries(n=n)}
 
 
 @app.get("/analytics/latency", tags=["Analytics"])
 def analytics_latency(q: str | None = Query(None, description="Filter to a specific query")):
-    """Latency statistics, optionally for a specific query."""
     return _tracker.latency_stats(query=q)
 
 
 @app.get("/analytics/volume", tags=["Analytics"])
 def analytics_volume():
-    """Search volume by calendar day."""
     return {"volume": _tracker.volume_by_day()}

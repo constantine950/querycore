@@ -21,19 +21,19 @@ DEFAULT_STOPWORDS: frozenset[str] = _build_default_stopwords()
 class PreprocessorConfig:
     """Configuration for the Preprocessor."""
     remove_stopwords: bool = True
-    apply_stemming:   bool = True
+    apply_stemming: bool = True
     custom_stopwords: set[str] = field(default_factory=set)
+    # Tokens shorter than this after stemming are dropped
     min_token_length: int = 2
 
 
 class Preprocessor:
-
     def __init__(self, config: PreprocessorConfig | None = None):
         self.config = config or PreprocessorConfig()
         self._stemmer = PorterStemmer()
         self._stopwords = DEFAULT_STOPWORDS | frozenset(
             self.config.custom_stopwords)
-        # 133× speedup on repeated tokens
+        # 133x speedup on repeated tokens
         self._stem_cache: dict[str, str] = {}
 
     def process(self, tokens: list[str]) -> list[str]:
@@ -45,6 +45,7 @@ class Preprocessor:
         if self.config.apply_stemming:
             result = self._stem(result)
 
+        # Drop tokens that became too short after stemming
         result = [t for t in result if len(t) >= self.config.min_token_length]
 
         return result
@@ -66,11 +67,8 @@ class Preprocessor:
     def stopwords(self) -> frozenset[str]:
         return self._stopwords
 
-    def cache_stats(self) -> dict:
-        return {"cached_stems": len(self._stem_cache)}
-
     def _remove_stopwords(self, tokens: list[str]) -> list[str]:
         return [t for t in tokens if t not in self._stopwords]
 
     def _stem(self, tokens: list[str]) -> list[str]:
-        return [self.stem(t) for t in tokens]
+        return [self._stemmer.stem(t) for t in tokens]
